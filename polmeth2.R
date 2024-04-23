@@ -41,4 +41,16 @@ boxplot(education21$X.E09211_小学校長期欠席児童比率.年度間30日以
         ylab = "小学校長期欠席児童比率(児童1000人当たり)",
         main = "教育費割合と小学校長期欠席児童比率の関係")
 
+education2 <- read.csv("education.csv", na.strings="***", fileEncoding="SJIS")
+education2021 <- subset(education2, 調査年 == "2021年度")
+rounded_variable2 <- round(education2021$X.L02411_食料費割合.二人以上の世帯...., digits = 0)
+education2021$四捨五入された食料費割合 <- rounded_variable2
+boxplot(education2021$X.E09211_小学校長期欠席児童比率.年度間30日以上..児童千人当たり.... ~
+        education2021$四捨五入された食料費割合,
+        xlab = "食料費割合(%)",
+        ylab = "小学校長期欠席児童比率(児童1000人当たり)",
+        main = "食料費割合と小学校長期欠席児童比率の関係")
+
+
+
 
