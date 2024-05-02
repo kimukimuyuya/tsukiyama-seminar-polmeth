@@ -35,3 +35,15 @@ hist(sim, freq = FALSE, breaks = seq(0.25, 0.75, 0.02),
 abline(v = 0.5, lty = "dotted", col = "red")
 x <- seq(from = 0.3, to = 0.7, by = 0.005)
 lines(x, dnorm(x, mean = 0.5, sd = sqrt(0.25 / n)), col = "blue")
+
+
+# 実際のデータを用いてt検定
+utasv <- read.csv("utasv.csv", fileEncoding = "SJIS", na.strings = c("NA", "", "66", "99", "999"))
+utasv$W1Q16_2_R <- utasv$W1Q16_2
+utasv$W1Q16_2_R[utasv$W1Q16_2 == 1] <- 5
+utasv$W1Q16_2_R[utasv$W1Q16_2 == 2] <- 4
+utasv$W1Q16_2_R[utasv$W1Q16_2 == 4] <- 2
+utasv$W1Q16_2_R[utasv$W1Q16_2 == 5] <- 1
+
+tapply(utasv$W1Q16_2_R, utasv$W1F1, mean, na.rm = TRUE)
+t.test(utasv$W1Q16_2_R ~ utasv$W1F1)
