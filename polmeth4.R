@@ -47,3 +47,11 @@ utasv$W1Q16_2_R[utasv$W1Q16_2 == 5] <- 1
 
 tapply(utasv$W1Q16_2_R, utasv$W1F1, mean, na.rm = TRUE)
 t.test(utasv$W1Q16_2_R ~ utasv$W1F1)
+
+# 新聞による右傾化、左傾化の検定
+utasv <- read.csv("utasv.csv", fileEncoding = "SJIS", na.strings = c("NA", "", "66", "99", "999"))
+utasv$W2Q26_1
+t.test(utasv$W2Q21 ~ utasv$W2Q26_1)
+
+
+
