@@ -29,4 +29,6 @@ farmstay2 <- merge(farmstay1, farmarea21, by.x = "地域コード", by.y = "地�
 result2 <- lm(年間訪問者数 ~ 農泊採択地域数 + 耕地面積率, data = farmstay2)
 summary(result2)
 
+library(car)
+vif(result2)
 
