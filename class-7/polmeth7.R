@@ -24,3 +24,12 @@ lines(x, y.hat, col = "red")
 
 b[2]/(-2*b[3])
 exp(b[2]/(-2*b[3]))
+
+#交差項
+df$人口密度 <- df$総人口 / df$可住地面積
+hist(df$人口密度)
+result4 <- lm(log(一人当たり歳出総額) ~ log(総人口) + log(人口密度) + I(log(総人口) * log(人口密度)), data = df)
+summary(result4)
+
+
+
