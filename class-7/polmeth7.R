@@ -31,5 +31,14 @@ hist(df$人口密度)
 result4 <- lm(log(一人当たり歳出総額) ~ log(総人口) + log(人口密度) + I(log(総人口) * log(人口密度)), data = df)
 summary(result4)
 
+df$一人当たり歳出総額_log <- log(df$一人当たり歳出総額)
+df$総人口_log <- log(df$総人口)
+df$人口密度_log <- log(df$人口密度)
+res5 <- lm(一人当たり歳出総額_log ~ 総人口_log + 人口密度_log +総人口_log * 人口密度_log, data = df)
+summary(res5)
 
+library(marginaleffects)
+g <- plot_slopes(res5, variables = "総人口_log", condition = "人口密度_log", conf.level = 0.95)
+
+g
 
