@@ -10,3 +10,4 @@ tapply(df2$W1Q20_4, df2$cluster, mean, na.rm = TRUE)#道徳〔大多数の人々
 tapply(df2$W1Q20_5, df2$cluster, mean, na.rm = TRUE)#自助努力〔政府や他の団体の助けを借りずに，自分自身で成功をつかみとること〕
 tapply(df2$W1Q20_6, df2$cluster, mean, na.rm = TRUE)#社会秩序〔法令が尊重された秩序ある平和な社会で暮らせること〕
 tapply(df2$W1Q20_7, df2$cluster, mean, na.rm = TRUE)#愛国心〔個人的な利害を超え、わが国全体に敬意を払い、国のために行動すること〕
+table(df2$cluster)

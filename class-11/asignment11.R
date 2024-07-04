@@ -37,4 +37,9 @@ res3 <- lmer(swd ~ gender + age + education + income * HDI + (1 + income | id_ye
 library(texreg)
 screenreg(list(res1, res2, res3), digits = 4)
 
+library(car)
+# モデル2: 多重共線性の確認のための線形モデルを作成
+lm_model2 <- lm(swd ~ gender + age + education + income + HDI, data = cses)
+vif(lm_model2)
+
 
