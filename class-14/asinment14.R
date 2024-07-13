@@ -13,3 +13,8 @@ res3 <- summary(res2)
 res3
 
 res2$loadings
+
+df3$comp1 <- res2$scores[, 1]
+utasv_pca <- merge(utasv_pca, df3, by = "ID", all.x = TRUE)
+
+boxplot(utasv_pca$comp1 ~ utasv_pca$W2Q21, xlab = "左右イデオロギー", ylab ="排他-受容的価値観")
