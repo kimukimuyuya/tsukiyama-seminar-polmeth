@@ -42,6 +42,8 @@ farmstay2 <- merge(farmstay2, climate, by.x = "都道府県名", by.y = "地域"
 farmstay2$宿泊業飲食サービス業事業所数比率 <- farmstay2$事業所数.宿泊業.飲食サービス業. / farmstay2$事業所数 * 100
 farmstay2$農家数.販売農家.　<- as.integer(farmstay2$農家数.販売農家.)
 
+library(readr)
+write_excel_csv(farmstay2, "farmstay_data2.csv")
 
 result3 <- lm(年間訪問者数 ~ 農泊採択地域数 + 耕地面積率 + 人口密度 + X65歳以上人口割合 + 標準財政規模 + 第1次産業就業者比率 + 宿泊業飲食サービス業事業所数比率, data = farmstay2)
 result4 <- lm(年間訪問者数 ~ 農泊採択地域数 + 耕地面積率 + 人口密度 + X65歳以上人口割合 + 標準財政規模 + 第1次産業就業者比率 + 宿泊業飲食サービス業事業所数比率 + 農家数.販売農家., data = farmstay2)
