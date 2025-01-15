@@ -10,3 +10,11 @@ data <- data.frame(lapply(data, as.numeric))
 cor_matrix <- cor(data)
 factor_result <- fa(cor_matrix, nfactors = 2, rotate = "varimax")
 factor_result$loadings
+
+library(cluster)
+
+dist_matrix <- dist(data)
+hclust_result <- hclust(dist_matrix, method = "ward.D2")
+
+clusters <- cutree(hclust_result, k = 2)
+by(data, clusters, apply, 2, mean)
